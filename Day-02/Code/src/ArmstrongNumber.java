@@ -17,20 +17,17 @@ public class ArmstrongNumber {
     // check whether the given number is Armstrong or not
     public static boolean isArmstrong(int n){
         int count = 1;
-        int temp1 = n;
-        while(temp1 >= 10){
-            temp1 /= 10;
+        int temp = n;
+        while(temp >= 10){
+            temp /= 10;
             count++;
         }
-        int[] nums = new int[count];
-        int temp2 = n;
-        for(int i = 0; i<count ; i++){
-            nums[i] = temp2 % 10;
-            temp2 /= 10;
-        }
+        temp = n;
         int sum = 0;
         for(int i = 0; i<count ; i++){
-            sum += (int) Math.pow(nums[i],count);
+            int digit = temp % 10;
+            sum += (int) Math.pow(digit,count);
+            temp /= 10;
         }
         return sum == n;
     }
