@@ -1,3 +1,6 @@
+package arrays;
+
+import utils.ArrayUtils;
 import java.util.Scanner;
 
 public class LargestElementInTheArray {
@@ -7,22 +10,12 @@ public class LargestElementInTheArray {
         System.out.print("Enter the size of the array: ");
         int size = scanner.nextInt();
 
-        int[] arr =  readArray(size,scanner);
+        int[] arr =  ArrayUtils.readArray(size,scanner);
 
         int largestElement = findLargest(arr);
         System.out.print("The largest element in the array : " + largestElement);
 
         scanner.close();
-    }
-
-    public static int[] readArray(int size, Scanner scanner){
-        int[] arr = new int[size];
-
-        for(int i = 0; i<arr.length; i++) {
-            System.out.print("Enter element " + (i+1) + " : ");
-            arr[i] = scanner.nextInt();
-        }
-        return arr;
     }
 
     public static int findLargest(int[] arr) {
